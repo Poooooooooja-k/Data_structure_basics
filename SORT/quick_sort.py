@@ -4,7 +4,7 @@ def pivot_place(list1,first,last):
     left=first+1
     right=last
     while True: 
-                              # for desc >=
+                               # for desc >=
         while left<=right and list1[left]<=pivot:
             left=left+1
                                 # for desc <=
