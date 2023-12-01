@@ -17,7 +17,7 @@ class queue:
         if self.queue is None:
             print("queue is empty")
         else:
-            print("inseritng last",self.queue[-1])
+            print("inserting last",self.queue[-1])
     def size(self):
         return len(self.queue)
     def display(self):
