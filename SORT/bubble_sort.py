@@ -10,4 +10,4 @@ list1=[10,25,4,23,0]
 print(list1)
 bubble(list1)
 print("sorted list :",list1)
-            
+          

@@ -22,6 +22,7 @@ class linked_list:
             n=n.ref
         return stack
 l=linked_list()
+
 l.add(10)
 l.add(20)
 l.add(30)
