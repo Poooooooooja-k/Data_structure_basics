@@ -33,22 +33,27 @@ class BST:
                 self.rchild.search(data)
             else:
                 print("node not found!!")
-    def delete(self,data):
+    def delete(self, data):
         if self.key is None:
-            print("tree is empty!!")
-            return
-        if data<self.key:
+            print("Tree is empty!!")
+            return self
+
+        if data < self.key:
             if self.lchild:
-                self.lchild=self.lchild.delete(data)
+                self.lchild = self.lchild.delete(data)
             else:
-                print("node not present")
-        elif data>self.key:
+                print("Node not present")
+        elif data > self.key:
             if self.rchild:
-                self.rchild.delete(data)
+                self.rchild = self.rchild.delete(data)
             else:
-                print("node not present")
+                print("Node not present")
         else:
-            
+            if self.lchild is None:
+                return self.rchild
+            elif self.rchild is None:
+                return self.lchild
+
             # Node with two children: Get the inorder successor (smallest
             # in the right subtree)
             successor = self.rchild
@@ -65,9 +70,17 @@ class BST:
                 # If successor is None, just set the node to None
                 return None
         return self
+    def inorder_traversal(self):
+        if self.lchild:
+            self.lchild.inorder_traversal()
+        print(self.key, end=" ")
+        if self.rchild:
+            self.rchild.inorder_traversal()
 root=BST(10)
 list1=[20,4,30,4,1,5,6]
 for i in list1:
     root.insert(i)
 root.search(6)
-root.delete(6)
+root=root.delete(6)
+print("\nInorder traversal after deletion:")
+root.inorder_traversal()
