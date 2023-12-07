@@ -48,19 +48,22 @@ class BST:
             else:
                 print("node not present")
         else:
-            if self.lchild is None:
-                temp=self.rchild
-                self=None
-                return temp
-            if self.rchild is None:
-                temp=self.lchild
-                self=None
-                return temp
-            node=self.rchild
-            while node.lchild:
-                node=node.lchild
-            self.key=node.key
-            self.rchild=self.rchild.delete(node.key)
+            
+            # Node with two children: Get the inorder successor (smallest
+            # in the right subtree)
+            successor = self.rchild
+            while successor and successor.lchild:
+                successor = successor.lchild
+
+            if successor:
+                # Copy the inorder successor's key to this node
+                self.key = successor.key
+
+                # Delete the inorder successor
+                self.rchild = self.rchild.delete(successor.key)
+            else:
+                # If successor is None, just set the node to None
+                return None
         return self
 root=BST(10)
 list1=[20,4,30,4,1,5,6]
