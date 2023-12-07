@@ -76,6 +76,16 @@ class BST:
         print(self.key, end=" ")
         if self.rchild:
             self.rchild.inorder_traversal()
+    def min_key(self):
+        current=self
+        while current.lchild:
+            current=current.lchild
+        print("node with mininum key is:",current.key)
+    def max_key(self):
+        current = self
+        while current.rchild:
+            current = current.rchild
+        print("Node with maximum key is:", current.key)
 root=BST(10)
 list1=[20,4,30,4,1,5,6]
 for i in list1:
@@ -84,3 +94,5 @@ root.search(6)
 root=root.delete(6)
 print("\nInorder traversal after deletion:")
 root.inorder_traversal()
+root.max_key()
+root.min_key()
