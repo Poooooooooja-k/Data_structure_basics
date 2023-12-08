@@ -86,6 +86,13 @@ class BST:
         while current.rchild:
             current = current.rchild
         print("Node with maximum key is:", current.key)
+    def isbst(self):
+        if self.key is not None:
+            left=self.lchild is None or(self.lchild.key<self.key and self.lchild.isbst())
+            right=self.rchild is None or(self.rchild.key>self.key and self.rchild.isbst())
+            return left and right
+        else:
+            return True
 root=BST(10)
 list1=[20,4,30,4,1,5,6]
 for i in list1:
@@ -96,3 +103,5 @@ print("\nInorder traversal after deletion:")
 root.inorder_traversal()
 root.max_key()
 root.min_key()
+is_bst = root.isbst()
+print("Is it a BST?", is_bst)
