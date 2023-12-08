@@ -98,7 +98,6 @@ list1=[20,4,30,4,1,5,6]
 for i in list1:
     root.insert(i)
 root.search(6)
-root=root.delete(6)
 print("\nInorder traversal after deletion:")
 root.inorder_traversal()
 root.max_key()
