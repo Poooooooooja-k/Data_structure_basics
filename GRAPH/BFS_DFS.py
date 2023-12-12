@@ -1,3 +1,4 @@
+
 def add_node(v):
     global node_count
     if v in nodes:
@@ -21,28 +22,16 @@ def add_edge(v1,v2):
         index2=nodes.index(v2)
         graph[index1][index2]=1
         graph[index2][index1]=1
-def delete_node(v):
-    global node_count
-    if v not in nodes:
-        print(v,"not present in list")
-    else:
-        index1=nodes.index(v)
-        node_count-=1
-        nodes.remove(v)
-        graph.pop(index1)
-        for i in graph:
-            i.pop(index1)
-def delete_edge(v1,v2):
-    if v1 not in nodes:
-        print(v1,"not present in graph")
-    elif v2 not in nodes:
-        print(v2,"not present in graph")
-    else:
-        index1=nodes.index(v1)
-        index2=nodes.index(v2)
-        graph[index1][index2]=0
-        graph[index2][index1]=0
-
+def DFS(start_node, visited):
+    if start_node not in nodes:
+        print("not present")
+        return
+    index = nodes.index(start_node)
+    visited[index] = True
+    print(start_node, end=" ")
+    for i in range(node_count):
+        if graph[index][i] == 1 and not visited[i]:
+            DFS(nodes[i], visited)
 nodes=[]
 graph=[]
 node_count=0
@@ -53,14 +42,9 @@ add_node("B")
 add_node("C")
 add_node("Y")
 add_edge("A","B")
-delete_node("D")
-delete_edge("A","B")
-print("after deletion of edge")
-print(graph)
-print("after insertion")
+add_edge("A", "C")
 print(nodes)
 print(graph)
-
-
-
-
+visited = [False]*node_count
+DFS("A", visited)
+print()
