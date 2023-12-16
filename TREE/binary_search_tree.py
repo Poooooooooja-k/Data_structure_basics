@@ -93,7 +93,7 @@ class BST:
             return left and right
         else:
             return True
-    def closest_value(self,target):
+    def closest(self,target):
         closest=self.key
         current=self
         while current:
@@ -104,7 +104,7 @@ class BST:
             elif target>current.key:
                 current=current.rchild
             else:
-                break
+                return closest
         return closest
 root=BST(10)
 list1=[20,4,30,1,5,6]
@@ -117,6 +117,6 @@ root.max_key()
 root.min_key()
 is_bst = root.isbst()
 print("Is it a BST?", is_bst)
-target=10
-result=root.closest_value(target)
+target=9
+result=root.closest(target)
 print("closest to target:",result)
