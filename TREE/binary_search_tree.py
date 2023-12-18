@@ -37,7 +37,6 @@ class BST:
         if self.key is None:
             print("Tree is empty!!")
             return self
-
         if data < self.key:
             if self.lchild:
                 self.lchild = self.lchild.delete(data)
@@ -53,7 +52,6 @@ class BST:
                 return self.rchild
             elif self.rchild is None:
                 return self.lchild
-
             # Node with two children: Get the inorder successor (smallest
             # in the right subtree)
             successor = self.rchild
