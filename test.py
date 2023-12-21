@@ -1,32 +1,22 @@
-class general_tree:
-    def __init__(self,key) -> None:
-        self.key=key
-        self.children=[]
-    def insert(self,data):
-        if self.key is None:
-            self.key=data
-        if self.key==data:
-            return
-        else:
-            new_node=general_tree(data)
-            self.children.append(new_node)
-    def delete(self,target):
-        new=[]
-        for child in self.children:
-            if child.key!=target:
-                new.append(child)
-            else:
-                child.delete(target)
-        self.children=new
-    def print_tree(self):
-        print(self.key,end=" ")
-        for i in self.children:
-            i.print_tree()
-t=general_tree(10)
-t.insert(20)
-t.insert(30)
-t.insert(1)
-t.insert(2)
-target=20
-t.delete(target)
-t.print_tree()
+def heapify(array,n,i):
+    largest=i
+    left=(2*i)+1
+    right=(2*i)+2
+    if left<n and array[left]>array[largest]:
+        largest=left
+    if right<n and array[right]>array[largest]:
+        largest=right
+    if largest!=i:
+        array[i],array[largest]=array[largest],array[i]
+        heapify(array,n,largest)
+def heapsort(array):
+    n=len(array)
+    for i in range(n//2,-1,-1):
+        heapify(array,n,i)
+    for i in range(n-1,0,-1):
+        array[i],array[0]=array[0],array[i]
+        heapify(array,i,0)
+    return array
+array=[12,87,9,2,34,54,76]
+data=heapsort(array)
+print("sorted array is:",data)

@@ -1,4 +1,4 @@
-def max_heapify(array,n,i):
+def heapify(array,n,i):
     largest=i
     left=(2*i)+1
     right=(2*i)+2
@@ -8,14 +8,14 @@ def max_heapify(array,n,i):
         largest=right
     if largest!=i:
         array[i],array[largest]=array[largest],array[i]
-        max_heapify(array,n,largest)
+        heapify(array,n,largest)
 def heapsort(array):
     n=len(array)
-    for i in range(n//2-1,-1,-1):
-        max_heapify(array,n,i)
+    for i in range(n//2,-1,-1):
+        heapify(array,n,i)
     for i in range(n-1,0,-1):
         array[i],array[0]=array[0],array[i]
-        max_heapify(array,i,0)
+        heapify(array,i,0)
     return array
 array=[12,87,9,2,34,54,76]
 data=heapsort(array)
