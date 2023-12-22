@@ -39,7 +39,7 @@ def BFS(start_node,visited):
     while queue:
         current=queue.popleft()
         print(current,end=" ")
-        index=[nodes.index(current)]
+        index=nodes.index(current)
         visited[index]=True
         for i in range(node_count):
             if graph[index][i]==1 and not visited[i]:
@@ -48,3 +48,28 @@ def BFS(start_node,visited):
 nodes=[]
 graph=[]
 node_count=0
+nodes=[]
+graph=[]
+node_count=0
+print("before addimg nodes")
+print(nodes)
+add_node("A")
+add_node("A")
+add_node("B")
+add_node("C")
+add_node("D")
+add_node("E")
+add_node("M")	
+add_edge("A", "B")
+add_edge("A", "C")
+add_edge("B", "C")
+add_edge("C", "D")
+add_edge("D", "f")
+print()
+print(nodes)
+print(graph)
+visited = [False]*node_count
+DFS("A", visited)
+print()
+BFS("A", visited)
+print()

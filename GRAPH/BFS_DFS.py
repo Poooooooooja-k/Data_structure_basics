@@ -40,7 +40,7 @@ def BFS(start_node,visited):
     while queue:
         current=queue.popleft()
         print(current,end=" ")
-        index=[nodes.index(current)]
+        index=nodes.index(current)
         visited[index]=True
         for i in range(node_count):
             if graph[index][i]==1 and not visited[i]:
