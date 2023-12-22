@@ -40,9 +40,10 @@ def BFS(start_node,visited):
     while queue:
         current=queue.popleft()
         print(current,end=" ")
-        visited[nodes.index(current)]=True
+        index=[nodes.index(current)]
+        visited[index]=True
         for i in range(node_count):
-            if graph[nodes.index(current)][i]==1 and not visited[i]:
+            if graph[index][i]==1 and not visited[i]:
                 queue.append(nodes[i])
                 visited[i]=1
 nodes=[]
