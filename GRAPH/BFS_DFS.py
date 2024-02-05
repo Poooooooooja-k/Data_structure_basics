@@ -31,7 +31,7 @@ def DFS(start_node, visited):
     print(start_node, end=" ")
     for i in range(node_count):
         if graph[index][i] == 1 and not visited[i]:
-            DFS(nodes[i], visited)
+            DFS(nodes[i],visited)
 def BFS(start_node,visited):
     if start_node not in nodes:
         print("node not present")

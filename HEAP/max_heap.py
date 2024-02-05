@@ -24,8 +24,8 @@ class maxheap:
         return max_element
     def heapify_down(self,index):
         while True:
-            left_child_index=2*index+1
-            right_child_index=2*index+2
+            left_child_index=(2*index)+1
+            right_child_index=(2*index)+2
             largest=index
             if left_child_index<len(self.heap) and self.heap[left_child_index]>self.heap[largest]:
                 largest=left_child_index
